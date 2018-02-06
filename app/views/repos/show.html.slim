@@ -1,0 +1,100 @@
+div class="subpage-content-wrapper #{ @repo.weight }"
+  - if current_user.blank?
+    .hero
+      h1.hero-title-primary= "The easiest way to get started contributing to Open Source #{@repo.language.downcase} projects like #{@repo.name}"
+      = cache(:hero_secondary_title_repo_show, expires_in: 1.hour) do
+        h2.hero-title-secondary Pick your favorite repos to receive a different open issue in your inbox every day. Fix the issue and everybody wins. #{number_with_delimiter(User.count, delimiter: ',')} developers are working on #{number_with_delimiter(Repo.count, delimiter: ',')} open source repos using CodeTriage. #{link_to "What is CodeTriage?", what_path}.
+
+        = link_to user_github_omniauth_authorize_path, class: 'button'
+          | Sign up with GitHub
+
+div class="subpage-content-wrapper #{ @repo.weight }"
+
+  header.subpage-content-header
+    = link_to @repo.github_url
+      h1.subpage-primary-title= @repo.name
+      p.subpage-secondary-title= @repo.github_url
+      h2.repo-language= @repo.language
+      p.repo-description= @repo.description
+
+  .repo-body
+    section.help-triage.content-section
+      - if @repo_sub.blank?
+        h2.content-section-title Triage Issues!
+        p.repo-instructions
+          | When you volunteer to triage issues, you'll receive an email each day with a link to an open issue that needs help in this project.
+            You'll also receive instructions on how to triage issues.
+
+        = link_to_or_log_in(text: "Triage Issues", path: repo_subscriptions_path(repo_subscription: { repo_id: @repo.id, email_limit: 3}), html_class: "repo-action")
+
+      - else
+        h2.content-section-title Currently receiving #{@repo_sub.email_limit} issues per day.
+        .repo-instructions
+          = form_for(@repo_sub, html: { class: 'email-amount'} ) do |f|
+            label Triage more issues! (Or less)
+            => f.select :email_limit, (0..20)
+            = f.submit "Save", class: 'save-amount'
+        - if (@repo_sub.email_limit > 0)
+          = link_to issue_assignments_path(id: @repo_sub.id), class: 'button repo-action', method: :post do
+            | Send me a new issue!
+
+    section.help-triage.content-section
+      - if @repo_sub.blank? || (@repo_sub.write.blank? && @repo_sub.read.blank?)
+        h2.content-section-title Triage Docs!
+        p.repo-instructions
+          | Receive a documented method or class from your favorite GitHub repos in your inbox every day. If you're really pro, receive undocumented methods or classes and supercharge your commit history.
+        - if @repo.can_doctor_docs?
+          = link_to_or_log_in(text: "Triage Docs", path: repo_subscriptions_path(id: @repo_sub.try(:id), repo_subscription: { repo_id: @repo.id, read: true, write: true,  read_limit: 3, write_limit: 3, email_limit: @repo_sub.try(:email_limit) || 0 }), html_class: "repo-action")
+        - else
+          = link_to "#{@repo.language} not yet supported", '#', class: "button inactive repo-action"
+
+      - else
+          h2.content-section-title Currently receiving #{@repo_sub.write_limit + @repo_sub.read_limit} docs per day.
+          .repo-instructions
+            = form_for(@repo_sub, html: {class: 'email-amount'}) do |f|
+              label Triage more docs! (Or less)
+              = f.label "Read Docs"
+              = f.select :read_limit, (0..20)
+              = f.submit "Save", class: 'save-amount'
+              = f.label "Write Docs"
+              => f.select :write_limit, (0..20)
+              = f.submit "Save", class: 'save-amount'
+
+      - if user_signed_in? && current_user.able_to_edit_repo?(@repo)
+        section.content-section
+          = link_to "Edit this repo", edit_repo_path(@repo), class: 'button full-width-action'
+
+    - cache [@repo, "repo_subscribers"] do
+      section.avatars.content-section
+        h2.content-section-title
+          = pluralize(@repo.subscribers_count, 'Subscriber'.pluralize())
+        ul.avatars-list
+          = render 'subscribers/avatars', subscribers: @subscribers, show_names: false
+
+        - if (difference = @repo.subscribers_count - @subscribers.length) && difference > 0
+          = link_to 'View all Subscribers' , repo_subscribers_path(full_name: @repo.full_name)
+
+      section.content-section
+        h2.content-section-title
+          | Add a CodeTriage badge to #{@repo.name}
+          img.repo-badge src="#{ File.join(repo_path(@repo), "badges/users.svg?count=#{@repo.subscribers_count}") }" /
+        = render partial: "badge"
+
+    section.open-issues.content-section
+      h2.content-section-title#help-out= "Help out"
+      ul.accordion-tabs
+        li.tab-header-and-content
+          a.tab-link href="javascript:void(0)" class=(@docs_pagination ? "" : "is-active") Issues
+          .tab-content class=(@docs_pagination ? "" : "is-open" )
+            - cache_if(!@issues_pagination,  [@repo, "issues"]) do
+              = render partial: "issues"
+
+        li.tab-header-and-content
+          a.tab-link href="javascript:void(0)" class=(@docs_pagination ? "is-active" : "") Docs
+          .tab-content class=(@docs_pagination ? "is-open" : "")
+            - cache_if(!@docs_pagination,  [@repo, "docs"]) do
+              = render partial: "docs"
+
+    - if @repo_sub
+      = link_to repo_subscription_path(@repo_sub), class: 'button stop-triaging full-width-action', method: :delete, data: { confirm: 'Are you sure?' } do
+          | Stop Triaging

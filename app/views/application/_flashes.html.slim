@@ -1,0 +1,4 @@
+- [:notice, :error, :alert, :success].each do |level|
+  - unless flash[level].blank?
+    div class="alert flash-#{level}"
+      = content_tag :p, flash[level]

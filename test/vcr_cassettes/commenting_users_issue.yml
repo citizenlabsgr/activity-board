@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/rails/rails/issues/8404/comments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.3.raw+json
+      User-Agent:
+      - 7551c3d9c1813b4deda7e6d5e9382245
+      Authorization:
+      - token <GITHUB_API_KEY>
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 07 Apr 2016 17:26:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '17917'
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4994'
+      X-Ratelimit-Reset:
+      - '1460053565'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding
+      Etag:
+      - '"fa7338669645b5e71aca922d0c9fea61"'
+      X-Oauth-Scopes:
+      - user:email
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; param=3.raw; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Security-Policy:
+      - default-src 'none'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Served-By:
+      - cee4c0729c8e9147e7abcb45b9d69689
+      X-Github-Request-Id:
+      - 48304DD5:76D6:4FFB1C9:57069830
+    body:
+      encoding: UTF-8
+      string: '[{"url":"https://api.github.com/repos/rails/rails/issues/comments/10948897","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10948897","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10948897,"user":{"login":"steveklabnik","id":27786,"avatar_url":"https://avatars.githubusercontent.com/u/27786?v=3","gravatar_id":"","url":"https://api.github.com/users/steveklabnik","html_url":"https://github.com/steveklabnik","followers_url":"https://api.github.com/users/steveklabnik/followers","following_url":"https://api.github.com/users/steveklabnik/following{/other_user}","gists_url":"https://api.github.com/users/steveklabnik/gists{/gist_id}","starred_url":"https://api.github.com/users/steveklabnik/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/steveklabnik/subscriptions","organizations_url":"https://api.github.com/users/steveklabnik/orgs","repos_url":"https://api.github.com/users/steveklabnik/repos","events_url":"https://api.github.com/users/steveklabnik/events{/privacy}","received_events_url":"https://api.github.com/users/steveklabnik/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T11:07:25Z","updated_at":"2012-12-03T11:07:25Z","body":"I
+        like it. :)"},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10949168","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10949168","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10949168,"user":{"login":"pixeltrix","id":6321,"avatar_url":"https://avatars.githubusercontent.com/u/6321?v=3","gravatar_id":"","url":"https://api.github.com/users/pixeltrix","html_url":"https://github.com/pixeltrix","followers_url":"https://api.github.com/users/pixeltrix/followers","following_url":"https://api.github.com/users/pixeltrix/following{/other_user}","gists_url":"https://api.github.com/users/pixeltrix/gists{/gist_id}","starred_url":"https://api.github.com/users/pixeltrix/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/pixeltrix/subscriptions","organizations_url":"https://api.github.com/users/pixeltrix/orgs","repos_url":"https://api.github.com/users/pixeltrix/repos","events_url":"https://api.github.com/users/pixeltrix/events{/privacy}","received_events_url":"https://api.github.com/users/pixeltrix/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T11:18:23Z","updated_at":"2012-12-03T11:18:23Z","body":"I''m
+        assuming that the use case for this is to filter sensitive data out of log
+        files like secure download urls? If so we need some documentation and an example
+        to show this and also a CHANGELOG entry."},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10949202","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10949202","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10949202,"user":{"login":"pixeltrix","id":6321,"avatar_url":"https://avatars.githubusercontent.com/u/6321?v=3","gravatar_id":"","url":"https://api.github.com/users/pixeltrix","html_url":"https://github.com/pixeltrix","followers_url":"https://api.github.com/users/pixeltrix/followers","following_url":"https://api.github.com/users/pixeltrix/following{/other_user}","gists_url":"https://api.github.com/users/pixeltrix/gists{/gist_id}","starred_url":"https://api.github.com/users/pixeltrix/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/pixeltrix/subscriptions","organizations_url":"https://api.github.com/users/pixeltrix/orgs","repos_url":"https://api.github.com/users/pixeltrix/repos","events_url":"https://api.github.com/users/pixeltrix/events{/privacy}","received_events_url":"https://api.github.com/users/pixeltrix/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T11:19:31Z","updated_at":"2012-12-03T11:19:31Z","body":"Also
+        squash the commits - thanks!"},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10950272","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10950272","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10950272,"user":{"login":"freegenie","id":19538,"avatar_url":"https://avatars.githubusercontent.com/u/19538?v=3","gravatar_id":"","url":"https://api.github.com/users/freegenie","html_url":"https://github.com/freegenie","followers_url":"https://api.github.com/users/freegenie/followers","following_url":"https://api.github.com/users/freegenie/following{/other_user}","gists_url":"https://api.github.com/users/freegenie/gists{/gist_id}","starred_url":"https://api.github.com/users/freegenie/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/freegenie/subscriptions","organizations_url":"https://api.github.com/users/freegenie/orgs","repos_url":"https://api.github.com/users/freegenie/repos","events_url":"https://api.github.com/users/freegenie/events{/privacy}","received_events_url":"https://api.github.com/users/freegenie/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T12:01:57Z","updated_at":"2012-12-03T12:01:57Z","body":"fixed
+        and squashed. Looking to add some docs and CHANGELOG entry."},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10951674","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10951674","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10951674,"user":{"login":"freegenie","id":19538,"avatar_url":"https://avatars.githubusercontent.com/u/19538?v=3","gravatar_id":"","url":"https://api.github.com/users/freegenie","html_url":"https://github.com/freegenie","followers_url":"https://api.github.com/users/freegenie/followers","following_url":"https://api.github.com/users/freegenie/following{/other_user}","gists_url":"https://api.github.com/users/freegenie/gists{/gist_id}","starred_url":"https://api.github.com/users/freegenie/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/freegenie/subscriptions","organizations_url":"https://api.github.com/users/freegenie/orgs","repos_url":"https://api.github.com/users/freegenie/repos","events_url":"https://api.github.com/users/freegenie/events{/privacy}","received_events_url":"https://api.github.com/users/freegenie/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T12:58:44Z","updated_at":"2012-12-03T12:58:44Z","body":"CHANGELOG
+        and docs added."},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10952763","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10952763","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10952763,"user":{"login":"pixeltrix","id":6321,"avatar_url":"https://avatars.githubusercontent.com/u/6321?v=3","gravatar_id":"","url":"https://api.github.com/users/pixeltrix","html_url":"https://github.com/pixeltrix","followers_url":"https://api.github.com/users/pixeltrix/followers","following_url":"https://api.github.com/users/pixeltrix/following{/other_user}","gists_url":"https://api.github.com/users/pixeltrix/gists{/gist_id}","starred_url":"https://api.github.com/users/pixeltrix/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/pixeltrix/subscriptions","organizations_url":"https://api.github.com/users/pixeltrix/orgs","repos_url":"https://api.github.com/users/pixeltrix/repos","events_url":"https://api.github.com/users/pixeltrix/events{/privacy}","received_events_url":"https://api.github.com/users/pixeltrix/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T13:35:51Z","updated_at":"2012-12-03T13:35:51Z","body":"Was
+        there a particular reason you put this under `ActionController`, rather than
+        `ActionDispatch` like the one for params? "},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10960960","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10960960","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10960960,"user":{"login":"Trevoke","id":67913,"avatar_url":"https://avatars.githubusercontent.com/u/67913?v=3","gravatar_id":"","url":"https://api.github.com/users/Trevoke","html_url":"https://github.com/Trevoke","followers_url":"https://api.github.com/users/Trevoke/followers","following_url":"https://api.github.com/users/Trevoke/following{/other_user}","gists_url":"https://api.github.com/users/Trevoke/gists{/gist_id}","starred_url":"https://api.github.com/users/Trevoke/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Trevoke/subscriptions","organizations_url":"https://api.github.com/users/Trevoke/orgs","repos_url":"https://api.github.com/users/Trevoke/repos","events_url":"https://api.github.com/users/Trevoke/events{/privacy}","received_events_url":"https://api.github.com/users/Trevoke/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T16:49:50Z","updated_at":"2012-12-03T16:49:50Z","body":"This
+        feature is required to use Intuit''s API - when we redirect to Intuit, the
+        oauth_token shows in the log, and in order to fulfill their security questionnaires,
+        no token can appear in the logs. I''m looking forward to this being added
+        to Rails."},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10972622","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10972622","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10972622,"user":{"login":"freegenie","id":19538,"avatar_url":"https://avatars.githubusercontent.com/u/19538?v=3","gravatar_id":"","url":"https://api.github.com/users/freegenie","html_url":"https://github.com/freegenie","followers_url":"https://api.github.com/users/freegenie/followers","following_url":"https://api.github.com/users/freegenie/following{/other_user}","gists_url":"https://api.github.com/users/freegenie/gists{/gist_id}","starred_url":"https://api.github.com/users/freegenie/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/freegenie/subscriptions","organizations_url":"https://api.github.com/users/freegenie/orgs","repos_url":"https://api.github.com/users/freegenie/repos","events_url":"https://api.github.com/users/freegenie/events{/privacy}","received_events_url":"https://api.github.com/users/freegenie/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T21:27:22Z","updated_at":"2012-12-03T21:27:22Z","body":"@pixeltrix
+        thanks for pointing this out. I admit that implementing more closely to what
+        we have in params_filter is a very attractive idea. After all they share similar
+        security concerns, and maybe they should also share some common behaviour
+        in terms of code. That would be more consistent, and less surprising for the
+        user. I realized it while editing the guide. But at the same time this is
+        a tiny change, doing it the other way would probably require to go touch a
+        lot of code, expecially if we want to abstract something out from FilterParameters.
+        @steveklabnik what do you think about this? Would it be better to propose
+        this change in an action_dispatch fashon? "},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10972991","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10972991","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10972991,"user":{"login":"steveklabnik","id":27786,"avatar_url":"https://avatars.githubusercontent.com/u/27786?v=3","gravatar_id":"","url":"https://api.github.com/users/steveklabnik","html_url":"https://github.com/steveklabnik","followers_url":"https://api.github.com/users/steveklabnik/followers","following_url":"https://api.github.com/users/steveklabnik/following{/other_user}","gists_url":"https://api.github.com/users/steveklabnik/gists{/gist_id}","starred_url":"https://api.github.com/users/steveklabnik/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/steveklabnik/subscriptions","organizations_url":"https://api.github.com/users/steveklabnik/orgs","repos_url":"https://api.github.com/users/steveklabnik/repos","events_url":"https://api.github.com/users/steveklabnik/events{/privacy}","received_events_url":"https://api.github.com/users/steveklabnik/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T21:35:58Z","updated_at":"2012-12-03T21:35:58Z","body":"If
+        the one for params is in `ActionDispatch`, it makes sense to put this one
+        there as well. I didn''t realize that it was there in the first place; I''m
+        still learning my way around some parts of the codebase, and @pixeltrix knows
+        what he''s talking about. :)"},{"url":"https://api.github.com/repos/rails/rails/issues/comments/10977498","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-10977498","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":10977498,"user":{"login":"freegenie","id":19538,"avatar_url":"https://avatars.githubusercontent.com/u/19538?v=3","gravatar_id":"","url":"https://api.github.com/users/freegenie","html_url":"https://github.com/freegenie","followers_url":"https://api.github.com/users/freegenie/followers","following_url":"https://api.github.com/users/freegenie/following{/other_user}","gists_url":"https://api.github.com/users/freegenie/gists{/gist_id}","starred_url":"https://api.github.com/users/freegenie/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/freegenie/subscriptions","organizations_url":"https://api.github.com/users/freegenie/orgs","repos_url":"https://api.github.com/users/freegenie/repos","events_url":"https://api.github.com/users/freegenie/events{/privacy}","received_events_url":"https://api.github.com/users/freegenie/received_events","type":"User","site_admin":false},"created_at":"2012-12-03T23:32:45Z","updated_at":"2012-12-03T23:32:45Z","body":"Well
+        then, I''m going to rework this a little. "},{"url":"https://api.github.com/repos/rails/rails/issues/comments/11017956","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-11017956","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":11017956,"user":{"login":"freegenie","id":19538,"avatar_url":"https://avatars.githubusercontent.com/u/19538?v=3","gravatar_id":"","url":"https://api.github.com/users/freegenie","html_url":"https://github.com/freegenie","followers_url":"https://api.github.com/users/freegenie/followers","following_url":"https://api.github.com/users/freegenie/following{/other_user}","gists_url":"https://api.github.com/users/freegenie/gists{/gist_id}","starred_url":"https://api.github.com/users/freegenie/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/freegenie/subscriptions","organizations_url":"https://api.github.com/users/freegenie/orgs","repos_url":"https://api.github.com/users/freegenie/repos","events_url":"https://api.github.com/users/freegenie/events{/privacy}","received_events_url":"https://api.github.com/users/freegenie/received_events","type":"User","site_admin":false},"created_at":"2012-12-04T22:08:24Z","updated_at":"2012-12-04T22:08:24Z","body":"I
+        updated this branch with a second attempt. I kept the previous commit and
+        reverted it just to provide some context for future readers. I''ll squash
+        eventually if it gets approved. This time I used the same approach as the
+        one used by `filter_parameters`. Paths of the two are quite different though,
+        since one is in the scope of the request, while the other one belongs to the
+        reponse."},{"url":"https://api.github.com/repos/rails/rails/issues/comments/11035277","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-11035277","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":11035277,"user":{"login":"pixeltrix","id":6321,"avatar_url":"https://avatars.githubusercontent.com/u/6321?v=3","gravatar_id":"","url":"https://api.github.com/users/pixeltrix","html_url":"https://github.com/pixeltrix","followers_url":"https://api.github.com/users/pixeltrix/followers","following_url":"https://api.github.com/users/pixeltrix/following{/other_user}","gists_url":"https://api.github.com/users/pixeltrix/gists{/gist_id}","starred_url":"https://api.github.com/users/pixeltrix/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/pixeltrix/subscriptions","organizations_url":"https://api.github.com/users/pixeltrix/orgs","repos_url":"https://api.github.com/users/pixeltrix/repos","events_url":"https://api.github.com/users/pixeltrix/events{/privacy}","received_events_url":"https://api.github.com/users/pixeltrix/received_events","type":"User","site_admin":false},"created_at":"2012-12-05T09:44:19Z","updated_at":"2012-12-05T09:44:19Z","body":"@freegenie
+        it''s looking much better - can you fix the guide and squash the commits and
+        then I''ll merge it, thanks!"},{"url":"https://api.github.com/repos/rails/rails/issues/comments/11035945","html_url":"https://github.com/rails/rails/pull/8404#issuecomment-11035945","issue_url":"https://api.github.com/repos/rails/rails/issues/8404","id":11035945,"user":{"login":"freegenie","id":19538,"avatar_url":"https://avatars.githubusercontent.com/u/19538?v=3","gravatar_id":"","url":"https://api.github.com/users/freegenie","html_url":"https://github.com/freegenie","followers_url":"https://api.github.com/users/freegenie/followers","following_url":"https://api.github.com/users/freegenie/following{/other_user}","gists_url":"https://api.github.com/users/freegenie/gists{/gist_id}","starred_url":"https://api.github.com/users/freegenie/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/freegenie/subscriptions","organizations_url":"https://api.github.com/users/freegenie/orgs","repos_url":"https://api.github.com/users/freegenie/repos","events_url":"https://api.github.com/users/freegenie/events{/privacy}","received_events_url":"https://api.github.com/users/freegenie/received_events","type":"User","site_admin":false},"created_at":"2012-12-05T10:10:00Z","updated_at":"2012-12-05T10:10:00Z","body":"@pixeltrix
+        Done! Many thanks to you for your precious review."}]'
+    http_version: 
+  recorded_at: Thu, 07 Apr 2016 17:26:09 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,31 @@
+{
+  "name":"Code Triage ",
+  "description": "Helping you contribute to open source since 2013",
+  "website": "https://www.codetriage.com/",
+  "repository": "https://github.com/codetriage/codetriage",
+  "scripts":{
+    "postdeploy":"rake db:schema:load db:migrate db:seed"
+  },
+  "env":{
+    "DEVISE_SECRET_KEY": "foo",
+    "DEVISE_SECRET_TOKEN": "bar",
+    "WEB_CONCURRENCY": "1"
+  },
+  "addons": [
+    "heroku-postgresql:in-dyno",
+    "heroku-redis:in-dyno",
+    "memcachier"
+  ],
+  "stack": "cedar-14",
+  "buildpacks": [
+    {
+      "url": "https://github.com/mojodna/heroku-buildpack-jemalloc.git#v3.6.0"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}

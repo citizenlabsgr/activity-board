@@ -1,0 +1,63 @@
+- if current_user.blank?
+  section.user-logged-out
+    h1= link_to 'Login to view yor account', user_github_omniauth_authorize_path
+
+- if current_user && current_user == @user
+  .subpage-content-wrapper
+    section.subpage-content-header
+      h1.subpage-primary-title= @user.github
+      h2.subpage-secondary-title.user-email= @user.email
+
+      .subpage-header-actions
+        = link_to 'Delete Account'.html_safe, token_delete_user_url(@user.account_delete_token)
+        = link_to 'Edit Account'.html_safe, edit_user_path(@user), class: 'header-primary-action'
+
+    section.user-settings.content-section
+      h2.content-section-title Settings
+
+      ul.slats-list
+        li.slats-item
+          .slats-hgroup
+            h3 Is your account shown to everyone:
+
+          .slats-action
+            p
+              - if @user.public?
+                | Public,
+                = link_to "Go private", user_registration_path(user: {private: true}), method: :patch
+              - else
+                | Private,
+                = link_to "Go public", user_registration_path(user: {private: false}), method: :patch
+        li.slats-item
+          .slats-hgroup
+            h5.slats-title Email frequency:
+          .slats-action
+            p= @user.email_frequency.presence || 'not set'
+
+        li.slats-item
+          .slats-hgroup
+            h5.slats-title Email time of day:
+          .slats-action
+            p= (@user.email_time_of_day && local_time(@user.email_time_of_day, '%H:%M %Z')) || 'not set'
+
+        li.slats-item
+          .slats-hgroup
+            h5.slats-title Max number of issues you want to receive per day:
+          .slats-action
+            p= @user.daily_issue_limit.presence || 'not set'
+
+        li.slats-item
+          .slats-hgroup
+            h5.slats-title Skip Issues with Pull Requests:
+          .slats-action
+            p= @user.skip_issues_with_pr
+
+    section.user-favorite-langs.content-section
+      h2.content-section-title Select your favorite languages:
+      = form_for @user do |f|
+        ul.all-languages-list
+          - Repo.all_languages.each do |language|
+            li.language-item
+              = f.check_box :favorite_languages, { multiple: true }, language, nil
+              = f.label language
+        p= button_tag "Save Favorite Languages", class: "button full-width-action"

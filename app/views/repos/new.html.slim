@@ -1,0 +1,39 @@
+- @repo.errors.full_messages.each do |msg|
+  li= msg
+
+.subpage-content-wrapper
+  .subpage-content-header
+    h1.subpage-primary-title Add a new repo to CodeTriage
+
+  section.content-section
+    h2.content-section-title Add another repo by pasting the full repo URL
+
+    = form_tag repos_path, { class: "new_repo", id: "new_repo_from_url" } do
+      => text_field_tag :url, nil, placeholder: 'full url e.g. "https://github.com/schneems/sextant', class: 'url_field'
+      = submit_tag nil, value: "Add Repo", class: 'button full-width-action', id: 'createRepo'
+
+  - if user_signed_in?
+    section.content-section
+      h2.content-section-title Your repos
+      p Only repos that have GitHub issues enabled are shown
+
+      ul.nav-tabs#repo-tabs data-tabs="tabs"
+        li.nav-tabs-item.active
+          a href="#own" data-toggle="tab"
+            | Your repos
+        li.nav-tabs-item
+          a href="#starred" data-toggle="tab"
+            | Starred repos
+        li.nav-tabs-item
+          a href="#watched" data-toggle="tab"
+            | Watched repos
+
+      .tab-content
+        .tab-pane.active#own
+          = render_async list_repos_path(show: :own)
+
+        .tab-pane#starred
+          = render_async list_repos_path(show: :starred)
+
+        .tab-pane#watched
+          = render_async list_repos_path(show: :watched)

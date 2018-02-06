@@ -1,0 +1,22 @@
+- if repos.blank? || repos.size == 0
+   h3 No repos
+- else
+  ul.slats-list
+    - repos.each do |repo|
+      - if repo["has_issues"] && !repo["private"]
+        li.slats-item
+          = form_for @repo do |f|
+            = f.hidden_field :user_name, value: repo["full_name"].split("/").first
+            = f.hidden_field :name, value: repo["full_name"].split("/").last
+            = f.hidden_field :stars_count, value: repo["stargazers_count"]
+            .slats-hgroup
+              h3= repo["full_name"]
+
+              h4 #{repo["stargazers_count"]}  stars,
+              h4 #{repo["open_issues_count"]} issues
+
+            .slats-action
+              - if Repo.exists_with_name?(repo["full_name"])
+                p Added!
+              - else
+                = f.submit "Add"
