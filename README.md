@@ -146,8 +146,6 @@ Make sure to remove any record modes from your VCR cassette before committing.
 
 ## Contact
 
-[Richard Schneeman](http://twitter.com/schneems)
+[Brandon Klotz](http://twitter.com/brandonklotz)
 
-Licensed under MIT License.
-Copyright (c) 2012 Schneems.
-See LICENSE.txt for further details.
+Licensed as Open Source! :D
