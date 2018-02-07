@@ -1,14 +1,14 @@
-.hero
-  h1.hero-title-primary Help out your favorite open source projects and become a better developer while doing it.
+.ui.basic.segment
+  h1.ui.header Help out your favorite open source projects and become a better developer while doing it.
   = cache(:hero_title_secondary, expires_in: 1.hour) do
-    h2.hero-title-secondary Pick your favorite repos to receive a different open issue in your inbox every day. Fix the issue and everybody wins. #{number_with_delimiter(User.count, delimiter: ',')} developers are working on #{number_with_delimiter(Repo.count, delimiter: ',')} open source repos using CodeTriage.
-    h2.hero-title-secondary =link_to "What is CodeTriage?", what_path
+    h2.ui.header Pick your favorite repos to receive a different open issue in your inbox every day. Fix the issue and everybody wins. #{number_with_delimiter(User.count, delimiter: ',')} developers are working on #{number_with_delimiter(Repo.count, delimiter: ',')} open source repos using CodeTriage.
+    =link_to "What is Activity Board?", what_path, class: 'ui basic button'
 
   - unless user_signed_in?
-      = link_to user_github_omniauth_authorize_path, class: 'button'
+      = link_to user_github_omniauth_authorize_path, class: 'ui basic positive button'
         | Sign up with GitHub
 
-hr.section-break
+.ui.section.divider
 
 - if @repos_subs.present?
   .repos-list-wrapper
@@ -16,15 +16,15 @@ hr.section-break
     .hero-repo-list-container
       = render 'repo_subscriptions/list', repos_subs: @repos_subs
 
-  hr.section-break
+  .ui.section.divider
 
-.repos-list-wrapper
-  h2.repos-list-title Open source projects on GitHub that need your help.
+.ui.basic.segment
+  h2.ui.header Open source projects on GitHub that need your help.
   - lang_index = 0
   .types-filter-wrapper
-    label.types-filter-label Filter list<span> by Language</span>:
+    label.types-filter-label Filter list by Language:
     = render "down"
-    a.types-filter-button
+    a.ui.filter.input
       = params["language"] || "Select Language"
 
     ul.types-filter
@@ -36,5 +36,8 @@ hr.section-break
   section.repo-list-with-pagination
     = render "repos_with_pagination", repos: @repos
 
-/ = link_to user_github_omniauth_authorize_path, class: 'button center'
-/   | Load More
+.ui.basic.segment
+  = link_to user_github_omniauth_authorize_path, class: 'ui purple button center'
+    | Load More
+
+.ui.section.divider

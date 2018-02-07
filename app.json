@@ -1,8 +1,8 @@
 {
-  "name":"Code Triage ",
-  "description": "Helping you contribute to open source since 2013",
-  "website": "https://www.codetriage.com/",
-  "repository": "https://github.com/codetriage/codetriage",
+  "name":"Activity Board",
+  "description": "Challenging developers to do more good and get rewarded.",
+  "website": "https://www.citizenlabs.org",
+  "repository": "https://github.com/citizenlabsgr/activity-board",
   "scripts":{
     "postdeploy":"rake db:schema:load db:migrate db:seed"
   },

@@ -1,26 +1,11 @@
-footer.application-footer
-  hr.section-break
-  = link_to "Submit a Repo", new_repo_path, class: 'button footer-action'
+footer
+  .ui.basic.segment
+    = link_to "Submit a Repo", new_repo_path, class: 'ui basic purple button'
 
-  p.credits
-    a href="https://www.schneems.com" class="credits-link"
-      = image_tag "schneems.svg", class: "credits-logo"
-      | Created by Schneems
-
-    a href="https://thoughtbot.com" class="credits-link"
-      = image_tag "thoughtbot.svg", class: "credits-logo"
-      | Designed by thoughtbot
-
-    a href="https://www.heroku.com" class="credits-link"
-      = image_tag "heroku.svg", class: "credits-logo heroku-logo"
-      | Powered by Heroku
-
-  p.housekeeping
-    = link_to "What is CodeTriage?", what_path
-    = link_to "Privacy Policy", privacy_path
-    = link_to "Support", support_path
-    = link_to "Fork us on GitHub", "https://github.com/codetriage/codetriage"
-
-  p
-    | &copy; CodeTriage &nbsp;
-    = Time.now.year
+    .ui.basic.segment
+      .ui.secondary.menu
+        .ui.item= link_to "What is CodeTriage?", what_path
+        .ui.item= link_to "Privacy Policy", privacy_path
+        .ui.item= link_to "Support", support_path
+        .ui.item &copy; Activity Board &nbsp; 
+        .ui.item= Time.now.year

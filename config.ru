@@ -2,5 +2,7 @@
 
 require 'rbtrace'
 
+require 'semantic-ui-sass'
+
 require ::File.expand_path('../config/environment', __FILE__)
 run CodeTriage::Application
